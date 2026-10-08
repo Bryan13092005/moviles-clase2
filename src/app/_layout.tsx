@@ -1,18 +1,14 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
+//se prensentan las vistas del usuario
+//envuelve a todos los componentes de la aplicacion
 
-import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+//importar slot desde expo router
+//es un componente que servira como espacio para renderizar la pantalla ACTIVA segun la ruta
+import {Slot, Stack} from 'expo-router';
 
-SplashScreen.preventAutoHideAsync();
+//layout raiz de expo router
+//envuelve todas las rutas y vistas dentro de la carpeta app
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
-  );
+export default function RootLayout() {
+    //return <Stack screenOptions={{headerShown:false}}/>;
+    return <Stack />;
 }
